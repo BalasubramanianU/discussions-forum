@@ -7,10 +7,7 @@ export const getDiscussionsList = () => {
       },
     };
     try {
-      const response = await fetch(
-        "https://discussions-forum.herokuapp.com/discussions-list/",
-        requestOptions
-      );
+      const response = await fetch("/discussions-list/", requestOptions);
       if (response.ok) {
         const data = await response.json();
         return resolve(data);
