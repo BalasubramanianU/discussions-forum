@@ -8,7 +8,7 @@ export const getDiscussionsList = () => {
     };
     try {
       const response = await fetch(
-        "http://localhost:5000/discussions-list/",
+        "https://discussions-forum.herokuapp.com/discussions-list/",
         requestOptions
       );
       if (response.ok) {
