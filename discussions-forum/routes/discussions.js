@@ -9,7 +9,12 @@ var initializePassport = require("../middlewares/auth");
 initializePassport(passport);
 
 router.get("/", async (req, res) => {
-  let user = await User.find();
+  let user = await User.find(
+    {
+      discussions: { $exists: true, $type: "array", $ne: [] },
+    },
+    { discussions: 1, _id: 0 }
+  );
   if (!user) return res.status(400).send("No records found");
 
   res.status(200).send(user);
