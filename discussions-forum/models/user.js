@@ -15,8 +15,32 @@ const userSchema = new mongoose.Schema({
     maxlength: 1024,
   },
   discussions: {
-    type: Array,
-    default: [],
+    type: [
+      {
+        topic: {
+          type: String,
+          required: true,
+          minlength: 1,
+          maxlength: 1024,
+          unique: true,
+        },
+        description: {
+          type: String,
+          required: true,
+          minlength: 1,
+          maxlength: 1024,
+        },
+        comments: [
+          {
+            type: String,
+            required: true,
+            minlength: 1,
+            maxlength: 1024,
+            unique: true,
+          },
+        ],
+      },
+    ],
   },
 });
 
