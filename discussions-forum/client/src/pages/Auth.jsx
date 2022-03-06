@@ -60,25 +60,24 @@ const Auth = (props) => {
     <div className="container">
       <div className="authContainer">
         <div className="authStyle">
-          <b>{title}</b>
-          <br></br>
-          <b>User Name </b>
+          <h2>{title}</h2>
           <input
             type="text"
             minLength="1"
             maxLength="255"
             required
+            placeholder="User Name"
             name="userName"
             value={formData.userName}
             onChange={handleChange}
           />
           <br></br>
-          <b>Password </b>
           <input
             type="password"
             minLength="1"
             maxLength="1024"
             required
+            placeholder="Password"
             name="password"
             value={formData.password}
             onChange={handleChange}

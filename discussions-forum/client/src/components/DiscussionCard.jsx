@@ -34,11 +34,12 @@ function DiscussionCard() {
     return (
       <div>
         <ListCard listItem={currentDiscussion} />
+        <br></br>
         {auth.userName && auth.password && (
           <AddComment comments={comments} updateComments={setComments} />
         )}
         {comments && comments.length !== 0 && (
-          <CommentCard comment={<b>Comments: </b>} />
+          <b className="commentTitle">Comments: </b>
         )}
         {renderComments()}
       </div>

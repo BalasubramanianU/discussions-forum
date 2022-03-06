@@ -3,13 +3,14 @@
   display: flex;
   flex-direction: column;
   flex: 1;
-  background-color: aqua;
+  background-color: #eeeed2;
 }
 
 .navBar {
   flex: 0.2;
   display: flex;
   flex-direction: row;
+  background-color: #769656;
 }
 
 .header {
@@ -17,7 +18,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: red;
 }
 
 .buttonContainer {
@@ -31,11 +31,11 @@
   flex: 0.8;
   display: flex;
   flex-direction: row;
+  background-color: #eeeed2;
 }
 
 .listStyle {
   flex: 0.5;
-  background-color: yellow;
 }
 
 .cardContainer {
@@ -45,21 +45,28 @@
 
 .cardStyle {
   flex: 0.8;
-  /* height: 20vh;
-  overflow: hidden; */
-  background-color: violet;
+}
+
+.innerCard {
+  background-color: #efefef;
+  border: 1px solid black;
+  border-radius: 10px;
+  margin-top: 3vh;
+  padding-bottom: 2vh;
 }
 
 .listDetailStyle {
   flex: 0.5;
   display: flex;
   justify-content: center;
-  background-color: orange;
 }
 
 .commentCardContainer {
   display: flex;
   justify-content: center;
+  margin-bottom: 2vh;
+  background-color: #fff;
+  border-radius: 15px;
 }
 
 .authContainer {
@@ -67,29 +74,66 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: red;
 }
 
 .authStyle {
   display: flex;
   flex: 0.25;
   flex-direction: column;
-  background-color: yellow;
 }
 
 .buttonStyle {
+  height: 6vh;
   width: 10vw;
+  border-radius: 15px;
   align-self: center;
+  border: none;
+  background-color: #769656;
 }
 
 .addDiscussionStyle {
   display: flex;
   flex: 0.5;
   flex-direction: column;
-  background-color: yellow;
 }
 
 .addDiscussionButton {
+  height: 6vh;
   width: 15vw;
   align-self: center;
+  border-radius: 15px;
+  border: none;
+  background-color: #769656;
+}
+
+.homePageDiscussionButton {
+  height: 6vh;
+  width: 15vw;
+  align-self: center;
+  border-radius: 15px;
+  border: none;
+}
+
+.homePageAuthButton {
+  height: 6vh;
+  width: 10vw;
+  align-self: center;
+  border-radius: 15px;
+  border: none;
+}
+
+.textAreaStyle {
+  width: 20vw;
+}
+
+.commentButtonStyle {
+  height: 6vh;
+  width: 15vw;
+  border-radius: 15px;
+  border: none;
+  background-color: #769656;
+}
+
+.commentTitle {
+  margin-left: 3vw;
 }

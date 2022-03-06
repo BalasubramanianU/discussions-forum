@@ -36,12 +36,16 @@ function AddComment(props) {
   };
 
   return (
-    <div style={{ marginTop: 5 }} className="commentCardContainer">
+    <div
+      className="commentCardContainer"
+      style={{ marginBottom: "3vh", backgroundColor: "#eeeed2" }}
+    >
       <div className="cardStyle">
         <div>
           <b>Add Comment: </b>
         </div>
         <textarea
+          className="textAreaStyle"
           type="text"
           minLength="1"
           maxLength="1024"
@@ -50,9 +54,11 @@ function AddComment(props) {
           value={formData}
           onChange={handleChange}
         ></textarea>
-        <button style={{ marginLeft: 5 }} onClick={handleClick}>
-          Add
-        </button>
+        <div>
+          <button className="commentButtonStyle" onClick={handleClick}>
+            <b>Post comment</b>
+          </button>
+        </div>
       </div>
     </div>
   );

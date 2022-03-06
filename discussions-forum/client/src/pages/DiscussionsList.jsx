@@ -6,15 +6,9 @@ import "../styles/styles.css";
 import { getDiscussionsList } from "../api/api";
 import {
   initializeDiscussionsList,
-  storeAuthInfo,
   storeCurrentDiscussion,
-  updateComment,
-  updateComments,
-  updateDiscussionsList,
 } from "../store/actions";
-import Card from "../components/ListCard";
 import ListCard from "../components/ListCard";
-import DiscussionCard from "../components/DiscussionCard";
 
 const DiscussionsList = () => {
   const dispatch = useDispatch();
@@ -33,9 +27,13 @@ const DiscussionsList = () => {
     return (
       <ul>
         {discussionsList.map((item) => (
-          <button key={item.topic} onClick={() => handleClick(item)}>
+          <div
+            className="innerCard"
+            key={item.topic}
+            onClick={() => handleClick(item)}
+          >
             <ListCard listItem={item} />
-          </button>
+          </div>
         ))}
       </ul>
     );
@@ -54,22 +52,33 @@ const DiscussionsList = () => {
         </div>
         <div className="buttonContainer">
           {auth.userName && auth.password ? (
-            <button title="Login" onClick={() => navigate("/add-discussion")}>
+            <button
+              className="homePageButton"
+              title="Login"
+              onClick={() => navigate("/add-discussion")}
+            >
               Create Discussion
             </button>
           ) : (
             <>
-              <button title="Login" onClick={() => navigate("/login")}>
+              <button
+                className="homePageAuthButton"
+                title="Login"
+                onClick={() => navigate("/login")}
+              >
                 Login
               </button>
-              <button title="Sign Up" onClick={() => navigate("/signup")}>
+              <button
+                className="homePageAuthButton"
+                title="Sign Up"
+                onClick={() => navigate("/signup")}
+              >
                 Sign Up
               </button>
             </>
           )}
         </div>
       </div>
-
       <div className="contentStyle">
         <div className="listStyle">{renderListItems()}</div>
         <div className="listDetailStyle">

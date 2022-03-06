@@ -50,8 +50,7 @@ function AddDiscussion() {
     <div className="container">
       <div className="authContainer">
         <div className="addDiscussionStyle">
-          <b>Create a discussion</b>
-          <br></br>
+          <h2>Create a discussion</h2>
           <b>Topic</b>
           <input
             type="text"
