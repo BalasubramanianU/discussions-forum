@@ -11,4 +11,8 @@ export const updateDiscussionsList = createAction(
 
 export const updateComment = createAction(types.UPDATE_COMMENT);
 
+export const storeCurrentDiscussion = createAction(
+  types.STORE_CURRENT_DISCUSSION
+);
+
 export const storeAuthInfo = createAction(types.STORE_AUTH_INFO);

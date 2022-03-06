@@ -5,7 +5,7 @@ module.exports = function () {
   mongoose
     .connect(
       uri,
-      // || "mongodb://127.0.0.1:27017/discussions-forum"
+      // "mongodb://127.0.0.1:27017/discussions-forum",
       {
         useNewUrlParser: true,
         useUnifiedTopology: true,

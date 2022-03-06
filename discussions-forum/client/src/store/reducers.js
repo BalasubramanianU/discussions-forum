@@ -5,6 +5,7 @@ const discussionForumReducer = createReducer(
   {
     discussionsList: [],
     auth: { userName: "", password: "" },
+    currentDiscussion: {},
   },
   (builder) => {
     builder
@@ -23,6 +24,9 @@ const discussionForumReducer = createReducer(
         state.discussionsList.forEach((e) => {
           if (e.topic === topic) e.comments.push(comment);
         });
+      })
+      .addCase(types.STORE_CURRENT_DISCUSSION, (state, action) => {
+        state.currentDiscussion = action.payload;
       })
       .addCase(types.STORE_AUTH_INFO, (state, action) => {
         const { userName, password } = action.payload;
