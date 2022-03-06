@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { Outlet } from "react-router";
-import { getDiscussionsList } from "../api/api";
+import { getDiscussionsList, signUpUser } from "../api/api";
 import {
   initializeDiscussionsList,
   storeAuthInfo,
