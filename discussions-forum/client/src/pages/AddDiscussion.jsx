@@ -14,6 +14,8 @@ function AddDiscussion() {
     topic: "",
     description: "",
   });
+  const [error, setError] = React.useState("");
+
   const handleChange = (event) => {
     setFormData({ ...formData, [event.target.name]: event.target.value });
   };
@@ -42,7 +44,16 @@ function AddDiscussion() {
           );
           navigate("/");
         })
-        .catch((error) => console.log(error));
+        .catch((error) => {
+          if (error.includes("Topic already exist")) setError(error);
+          else {
+            const parsedErrMsg = error
+              .split(":")[1]
+              .replace(/"}/, "")
+              .replace('"', "");
+            setError(parsedErrMsg);
+          }
+        });
     }
   };
 
@@ -72,7 +83,11 @@ function AddDiscussion() {
             value={formData.description}
             onChange={handleChange}
           />
-          <br></br>
+          {error && typeof error === "string" ? (
+            <p className="errorText">{error}</p>
+          ) : (
+            <br></br>
+          )}
           <button className="addDiscussionButton" onClick={handleClick}>
             Create Discussion
           </button>

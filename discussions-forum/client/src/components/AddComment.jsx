@@ -8,6 +8,7 @@ function AddComment(props) {
 
   const { auth, currentDiscussion } = useSelector((state) => state);
   const [formData, setFormData] = React.useState("");
+  const [error, setError] = React.useState("");
 
   const handleChange = (event) => {
     setFormData(event.target.value);
@@ -31,14 +32,27 @@ function AddComment(props) {
           setFormData("");
           props.updateComments([...props.comments, formData]);
         })
-        .catch((error) => console.log(error));
+        .catch((error) => {
+          if (error.includes("Topic not found")) setError(error);
+          else {
+            const parsedErrMsg = error
+              .split(":")[1]
+              .replace(/"}/, "")
+              .replace('"', "");
+            setError(parsedErrMsg);
+          }
+        });
     }
   };
 
   return (
     <div
       className="commentCardContainer"
-      style={{ marginBottom: "3vh", backgroundColor: "#eeeed2" }}
+      style={{
+        marginBottom: "3vh",
+        backgroundColor: "#eeeed2",
+        justifyContent: "flex-start",
+      }}
     >
       <div className="cardStyle">
         <div>
@@ -55,6 +69,11 @@ function AddComment(props) {
           onChange={handleChange}
         ></textarea>
         <div>
+          {error && typeof error === "string" ? (
+            <p className="errorText">{error}</p>
+          ) : (
+            <br></br>
+          )}
           <button className="commentButtonStyle" onClick={handleClick}>
             <b>Post comment</b>
           </button>

@@ -22,7 +22,7 @@ router.post("/signup", async (req, res) => {
   try {
     let user;
     user = await User.findOne({ userName: req.body.userName });
-    if (user) return res.status(400).send("user already exists");
+    if (user) return res.status(400).send("User already exists.");
 
     user = new User(req.body);
     user.password = await passHash(user.password);

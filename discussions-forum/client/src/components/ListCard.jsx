@@ -2,10 +2,13 @@ import React from "react";
 import "../styles/styles.css";
 
 function ListCard(props) {
-  const { listItem } = props;
+  const { listItem, style } = props;
 
   return (
-    <div style={{ marginTop: 10 }} className="cardContainer">
+    <div
+      style={style ? { ...style, marginTop: "3vh" } : { marginTop: 10 }}
+      className="cardContainer"
+    >
       <div className="cardStyle">
         <div>
           <b>Title: </b>

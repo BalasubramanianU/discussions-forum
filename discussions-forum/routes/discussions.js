@@ -15,7 +15,7 @@ router.get("/", async (req, res) => {
     },
     { discussions: 1, _id: 0 }
   );
-  if (!user) return res.status(400).send("No records found");
+  if (!user) return res.status(400).send("No records found.");
 
   res.status(200).send(user);
 });
@@ -31,7 +31,7 @@ router.post("/", async (req, res) => {
         let discussion = await User.findOne({
           discussions: { $elemMatch: { topic: req.body.discussion.topic } },
         });
-        if (discussion) return res.status(400).send("topic already exists");
+        if (discussion) return res.status(400).send("Topic already exists.");
 
         user.discussions.push(req.body.discussion);
         await user.save();
@@ -55,7 +55,7 @@ router.post("/:topic", async (req, res) => {
         user = await User.findOne({
           discussions: { $elemMatch: { topic: req.body.topic } },
         });
-        if (!user) return res.status(400).send("topic not found");
+        if (!user) return res.status(400).send("Topic not found.");
 
         user.discussions.forEach((element) => {
           if (element.topic === req.body.topic)

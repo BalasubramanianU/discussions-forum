@@ -26,21 +26,22 @@ function DiscussionCard() {
 
   if (Object.keys(currentDiscussion).length === 0)
     return (
-      <p>
+      <p className="errorText">
         Improper data, click any of the discussion from the list to try again.
       </p>
     );
   else
     return (
-      <div>
-        <ListCard listItem={currentDiscussion} />
+      <div style={{ flex: 0.8 }}>
+        <ListCard
+          listItem={currentDiscussion}
+          style={{ justifyContent: "flex-start" }}
+        />
         <br></br>
         {auth.userName && auth.password && (
           <AddComment comments={comments} updateComments={setComments} />
         )}
-        {comments && comments.length !== 0 && (
-          <b className="commentTitle">Comments: </b>
-        )}
+        {comments && comments.length !== 0 && <b>Comments: </b>}
         {renderComments()}
       </div>
     );

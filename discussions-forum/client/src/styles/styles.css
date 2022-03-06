@@ -123,7 +123,7 @@
 }
 
 .textAreaStyle {
-  width: 20vw;
+  width: 30vw;
 }
 
 .commentButtonStyle {
@@ -136,4 +136,8 @@
 
 .commentTitle {
   margin-left: 3vw;
+}
+
+.errorText {
+  color: red;
 }

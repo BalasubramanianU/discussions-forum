@@ -12,15 +12,19 @@ import ListCard from "../components/ListCard";
 
 const DiscussionsList = () => {
   const dispatch = useDispatch();
-  const { discussionsList, auth } = useSelector((state) => state);
   const navigate = useNavigate();
+
+  const { discussionsList, auth } = useSelector((state) => state);
+  const [error, setError] = React.useState("");
 
   useEffect(() => {
     getDiscussionsList()
       .then((data) => {
-        dispatch(initializeDiscussionsList(data));
+        Array.isArray(data) && data.length !== 0
+          ? dispatch(initializeDiscussionsList(data))
+          : setError("No records found. Create a new discussion.");
       })
-      .catch((error) => console.log(error));
+      .catch((error) => setError(error));
   }, []);
 
   const renderListItems = React.useCallback(() => {
@@ -53,8 +57,8 @@ const DiscussionsList = () => {
         <div className="buttonContainer">
           {auth.userName && auth.password ? (
             <button
-              className="homePageButton"
-              title="Login"
+              className="homePageDiscussionButton"
+              title="Create Discussion"
               onClick={() => navigate("/add-discussion")}
             >
               Create Discussion
@@ -80,7 +84,13 @@ const DiscussionsList = () => {
         </div>
       </div>
       <div className="contentStyle">
-        <div className="listStyle">{renderListItems()}</div>
+        <div className="listStyle">
+          {error && typeof error === "string" ? (
+            <p className="errorText">{error}</p>
+          ) : (
+            renderListItems()
+          )}
+        </div>
         <div className="listDetailStyle">
           <Outlet />
         </div>

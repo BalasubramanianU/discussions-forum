@@ -13,6 +13,8 @@ const Auth = (props) => {
     userName: "",
     password: "",
   });
+  const [error, setError] = React.useState("");
+
   const handleChange = (event) => {
     setFormData({ ...formData, [event.target.name]: event.target.value });
   };
@@ -38,7 +40,13 @@ const Auth = (props) => {
               );
               navigate("/discussions-list");
             })
-            .catch((error) => console.log(error))
+            .catch((error) => {
+              const parsedErrMsg = error
+                .split(":")[1]
+                .replace(/"}/, "")
+                .replace('"', "");
+              setError(parsedErrMsg);
+            })
         : signUpUser({
             userName: formData.userName,
             password: formData.password,
@@ -52,7 +60,9 @@ const Auth = (props) => {
               );
               navigate("/discussions-list");
             })
-            .catch((error) => console.log(error));
+            .catch((error) => {
+              setError(error);
+            });
     }
   };
 
@@ -82,7 +92,11 @@ const Auth = (props) => {
             value={formData.password}
             onChange={handleChange}
           />
-          <br></br>
+          {error && typeof error === "string" ? (
+            <p className="errorText">{error}</p>
+          ) : (
+            <br></br>
+          )}
           <button className="buttonStyle" onClick={handleClick}>
             {title}
           </button>
