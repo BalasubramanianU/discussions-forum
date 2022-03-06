@@ -38,7 +38,7 @@ export const loginUser = (props) => {
     };
     try {
       const response = await fetch(
-        "http://localhost:5000/user/login",
+        "https://discussions-forum.herokuapp.com/user/login",
         requestOptions
       );
       if (response.ok) {
@@ -68,7 +68,7 @@ export const signUpUser = (props) => {
     };
     try {
       const response = await fetch(
-        "http://localhost:5000/user/signup",
+        "https://discussions-forum.herokuapp.com/user/signup",
         requestOptions
       );
       if (response.ok) {
@@ -98,7 +98,7 @@ export const postDiscussion = (props) => {
     };
     try {
       const response = await fetch(
-        "http://localhost:5000/discussions-list/",
+        "https://discussions-forum.herokuapp.com/discussions-list/",
         requestOptions
       );
       if (response.ok) {
@@ -129,7 +129,7 @@ export const postComment = (props) => {
     };
     try {
       const response = await fetch(
-        "http://localhost:5000/discussions-list/:topic",
+        "https://discussions-forum.herokuapp.com/discussions-list/:topic",
         requestOptions
       );
       if (response.ok) {
