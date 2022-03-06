@@ -10,7 +10,7 @@
   flex: 0.2;
   display: flex;
   flex-direction: row;
-  background-color: #769656;
+  background-color: #b0dda5;
 }
 
 .header {
@@ -88,7 +88,7 @@
   border-radius: 15px;
   align-self: center;
   border: none;
-  background-color: #769656;
+  background-color: #b0dda5;
 }
 
 .addDiscussionStyle {
@@ -103,7 +103,7 @@
   align-self: center;
   border-radius: 15px;
   border: none;
-  background-color: #769656;
+  background-color: #b0dda5;
 }
 
 .homePageDiscussionButton {
@@ -131,7 +131,7 @@
   width: 15vw;
   border-radius: 15px;
   border: none;
-  background-color: #769656;
+  background-color: #b0dda5;
 }
 
 .commentTitle {
