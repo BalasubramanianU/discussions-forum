@@ -9,14 +9,18 @@ import DiscussionCard from "./components/DiscussionCard";
 function App() {
   return (
     <Routes>
-      {["/", "/discussions-list"].map((path, index) => (
-        <Route key={index} path={path} element={<DiscussionsList />}>
-          <Route
-            path="/discussions-list/:discussion"
-            element={<DiscussionCard />}
-          />
-        </Route>
-      ))}
+      <Route path="/" element={<DiscussionsList />}>
+        <Route
+          path="/discussions-list/:discussion"
+          element={<DiscussionCard />}
+        />
+      </Route>
+      <Route path="/discussions-list" element={<DiscussionsList />}>
+        <Route
+          path="/discussions-list/:discussion"
+          element={<DiscussionCard />}
+        />
+      </Route>
       <Route path="/login" element={<Auth title={"Login"} />} />
       <Route path="/signup" element={<Auth title={"Sign up"} />} />
       <Route path="/add-discussion" element={<AddDiscussion />} />
