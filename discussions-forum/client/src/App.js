@@ -2,7 +2,6 @@ import { Routes, Route } from "react-router-dom";
 
 import "./styles/styles.css";
 import DiscussionsList from "./pages/DiscussionsList";
-import Discussion from "./pages/Discussion";
 import Auth from "./pages/Auth";
 import AddDiscussion from "./pages/AddDiscussion";
 import DiscussionCard from "./components/DiscussionCard";
