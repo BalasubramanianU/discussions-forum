@@ -22,7 +22,6 @@ const userSchema = new mongoose.Schema({
           required: true,
           minlength: 1,
           maxlength: 1024,
-          unique: true,
         },
         description: {
           type: String,
@@ -36,7 +35,6 @@ const userSchema = new mongoose.Schema({
             required: true,
             minlength: 1,
             maxlength: 1024,
-            unique: true,
           },
         ],
       },
