@@ -8,7 +8,7 @@ export const getDiscussionsList = () => {
     };
     try {
       const response = await fetch(
-        "https://discussions-forum.herokuapp.com/discussions-list/",
+        "https://discussions-forum.onrender.com/discussions-list/",
         // "http://localhost:5000/discussions-list/",
         requestOptions
       );
@@ -39,7 +39,7 @@ export const loginUser = (props) => {
     };
     try {
       const response = await fetch(
-        "https://discussions-forum.herokuapp.com/user/login",
+        "https://discussions-forum.onrender.com/user/login",
         // "http://localhost:5000/user/login",
         requestOptions
       );
@@ -70,7 +70,7 @@ export const signUpUser = (props) => {
     };
     try {
       const response = await fetch(
-        "https://discussions-forum.herokuapp.com/user/signup",
+        "https://discussions-forum.onrender.com/user/signup",
         // "http://localhost:5000/user/signup",
         requestOptions
       );
@@ -101,7 +101,7 @@ export const postDiscussion = (props) => {
     };
     try {
       const response = await fetch(
-        "https://discussions-forum.herokuapp.com/discussions-list/",
+        "https://discussions-forum.onrender.com/discussions-list/",
         // "http://localhost:5000/discussions-list/",
         requestOptions
       );
@@ -133,7 +133,7 @@ export const postComment = (props) => {
     };
     try {
       const response = await fetch(
-        "https://discussions-forum.herokuapp.com/discussions-list/:topic",
+        "https://discussions-forum.onrender.com/discussions-list/:topic",
         // "http://localhost:5000/discussions-list/:topic",
         requestOptions
       );
